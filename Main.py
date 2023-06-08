@@ -16,4 +16,3 @@ print("HP: " + str(HP) + "/" + str(HPM))
 print("MP: " + str(MP) + "/" + str(MPM))
 print("Lvl: " + str(Lvl))
 print("XP: " + str(XP) + "/" + str(XPlvl))
-
