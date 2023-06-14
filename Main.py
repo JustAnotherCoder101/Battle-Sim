@@ -1,5 +1,6 @@
 import random
 import os
+import function
 
 Name = input("What is Your Hero's name?")
 HP = 100
@@ -16,4 +17,7 @@ print("HP: " + str(HP) + "/" + str(HPM))
 print("MP: " + str(MP) + "/" + str(MPM))
 print("Lvl: " + str(Lvl))
 print("XP: " + str(XP) + "/" + str(XPlvl))
+input("press enter to continue")
+os.system("clear")
+function.load(5)
 
