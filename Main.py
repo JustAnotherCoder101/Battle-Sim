@@ -20,4 +20,3 @@ print("XP: " + str(XP) + "/" + str(XPlvl))
 input("press enter to continue")
 os.system("clear")
 function.load(5)
-
