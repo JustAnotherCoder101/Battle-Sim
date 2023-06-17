@@ -11,6 +11,7 @@ XP = 0
 XPlvl = 10
 Lvl = 1
 BDAM = 3
+Coins = 10
 Slot0 = {"0": 0}
 Slot1 = {"Shirt": 2}
 Slot2= {"Leggings": 1}
@@ -28,6 +29,7 @@ print("Lvl: " + str(Lvl))
 print("XP: " + str(XP) + "/" + str(XPlvl))
 print("Defense: " + str(DEF))
 print("Damage: " + str(DAM))
+print("Coins:" + str(Coins))
 input("press enter to continue")
 os.system("clear")
 function.load(5)
