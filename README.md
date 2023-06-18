@@ -1,1 +1,9 @@
-This is a Engine that will use changes in a playet's XP, levels, magic, health and possibly inventory.
+This is a Engine that will use changes in a playet's XP, levels, magic, health, Money, buffs and possibly inventory.
+
+### What will there be?
+
+- There will be a shop
+
+- There will be enemies
+
+- Possibly a map!
