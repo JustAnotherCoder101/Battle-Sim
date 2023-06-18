@@ -7,3 +7,7 @@ This is a Engine that will use changes in a playet's XP, levels, magic, health, 
 - There will be enemies
 
 - Possibly a map!
+
+
+To suggest ideas click [here](https://github.com/JustAnotherCoder101/Battle-Sim/discussions/3 "Disscussions")
+ 
