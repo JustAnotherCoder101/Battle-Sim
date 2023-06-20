@@ -14,6 +14,9 @@ BDAM = 3
 Crit = 4
 Coins = 10
 Slot0 = {"0": 0, "WoodHelmet": 3}
+b1 = 0
+b2 = 0
+b3 = 0
 #Slots are numbered in the id of the list
 Slot1 = {"Shirt": 2}
 Slot2 = {"Leggings": 1, "PlatedLeggings": 3}
@@ -36,7 +39,14 @@ BUFF = [
   SlotBuff.get(Slot[5]),
   SlotBuff.get(Slot[6]),
 ]
-
+def buff():
+  global b1
+  global b2
+  global b3
+  global BUFF
+  if BUFF[0] == 0 and BUFF[1] == 0 and BUFF[2] == 0:
+    return
+  
 os.system("clear")
 print("Hero Stats")
 print("Name: " + Name)
