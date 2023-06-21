@@ -39,13 +39,32 @@ BUFF = [
   SlotBuff.get(Slot[5]),
   SlotBuff.get(Slot[6]),
 ]
-def buff():
+def Modbuff():
   global b1
   global b2
   global b3
   global BUFF
   if BUFF[0] == 0 and BUFF[1] == 0 and BUFF[2] == 0:
-    return
+    b1 = 0
+    b2 = 0
+    b3 = 0
+  else:
+    if BUFF[0] == 5:
+      b1 = 5
+    else:
+      if BUFF[0] == 10:
+        b1 = 10
+
+    if BUFF[1] == 5:
+      b2 = 5
+    else:
+      if BUFF[1] == 15:
+        b2 = 15
+    if BUFF[2] == 10:
+      b3 = 10
+    else:
+      if BUFF[2] == 15:
+        b3 = 15             
   
 os.system("clear")
 print("Hero Stats")
