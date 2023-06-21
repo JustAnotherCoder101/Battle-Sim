@@ -19,8 +19,8 @@ b2 = 0
 b3 = 0
 #Slots are numbered in the id of the list
 Slot1 = {"Shirt": 2}
-Slot2 = {"Leggings": 1, "PlatedLeggings": 3}
-Slot3 = {"Twig": 4, "Sword": 6}
+Slot2 = {"Leggings": 1, "Plated Leggings": 3}
+Slot3 = {"Rookie's Sword": 5, "Sword": 8}
 SlotBuff = {
   "0": 0,
   "Crit1": 5,
@@ -31,7 +31,7 @@ SlotBuff = {
   "Dam2": 20
 }
 #SlotBuff is slot 4,5 and 6
-Slot = ["0", "Shirt", "Leggings", "Twig", "0", "0", "0"]
+Slot = ["0", "Shirt", "Leggings", "Wood Sword", "0", "0", "0"]
 DAM = Slot3.get(Slot[3]) + BDAM
 DEF = Slot0.get(Slot[0]) + Slot1.get(Slot[1]) + Slot2.get(Slot[2])
 BUFF = [
@@ -39,6 +39,8 @@ BUFF = [
   SlotBuff.get(Slot[5]),
   SlotBuff.get(Slot[6]),
 ]
+
+
 def Modbuff():
   global b1
   global b2
@@ -64,8 +66,9 @@ def Modbuff():
       b3 = 10
     else:
       if BUFF[2] == 15:
-        b3 = 15             
-  
+        b3 = 15
+
+
 os.system("clear")
 print("Hero Stats")
 print("Name: " + Name)
@@ -74,9 +77,10 @@ print("MP: " + str(MP) + "/" + str(MPM))
 print("Lvl: " + str(Lvl))
 print("XP: " + str(XP) + "/" + str(XPlvl))
 print("Defense: " + str(DEF))
-print("Crit chance: " + Crit)
+print("Crit chance: " + str(Crit) + "%")
 print("Damage: " + str(DAM), "\033[33m")
 print("Coins:" + str(Coins), "\033[0m")
+print("Main weapon: "+ Slot[3])
 
 input("press enter to continue")
 os.system("clear")
