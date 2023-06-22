@@ -17,6 +17,7 @@ Slot0 = {"0": 0, "WoodHelmet": 3}
 b1 = 0
 b2 = 0
 b3 = 0
+
 #Slots are numbered in the id of the list
 Slot1 = {"Shirt": 2}
 Slot2 = {"Leggings": 1, "Plated Leggings": 3}
@@ -31,7 +32,7 @@ SlotBuff = {
   "Dam2": 20
 }
 #SlotBuff is slot 4,5 and 6
-Slot = ["0", "Shirt", "Leggings", "Wood Sword", "0", "0", "0"]
+Slot = ["0", "Shirt", "Leggings", "Rookie's Sword", "0", "0", "0"]
 DAM = Slot3.get(Slot[3]) + BDAM
 DEF = Slot0.get(Slot[0]) + Slot1.get(Slot[1]) + Slot2.get(Slot[2])
 BUFF = [
@@ -80,7 +81,7 @@ print("Defense: " + str(DEF))
 print("Crit chance: " + str(Crit) + "%")
 print("Damage: " + str(DAM), "\033[33m")
 print("Coins:" + str(Coins), "\033[0m")
-print("Main weapon: "+ Slot[3])
+print("Main weapon: "+ str(Slot[3]))
 
 input("press enter to continue")
 os.system("clear")
