@@ -70,6 +70,34 @@ def Modbuff():
         b3 = 15
 
 
+def BuffName():
+  global b1
+  global b2
+  global b3
+  if b1 == 5:
+    thing1 = "Armour Boost Lvl1"
+  elif b1 == 10:
+    thing1 = "Armour Boost Lvl2"
+  else:
+    thing1 = "None"
+
+  if b2 == 5:
+    thing2 = "Weapon Boost Lvl1"
+  elif b2 == 10:
+    thing2 = "Weapon Boost Lvl2"
+  else:
+    thing2 = "None"
+
+  if b3 == 5:
+    thing3 = "Crit Boost Lvl1"
+  elif b3 == 15:
+    thing3 = "Crit Boost Lvl2"
+  else:
+    thing3 = "None"
+  return [thing1, thing2, thing3]
+
+
+buffs = BuffName()
 os.system("clear")
 print("Hero Stats")
 print("Name: " + Name)
@@ -81,7 +109,8 @@ print("Defense: " + str(DEF))
 print("Crit chance: " + str(Crit) + "%")
 print("Damage: " + str(DAM), "\033[33m")
 print("Coins:" + str(Coins), "\033[0m")
-print("Main weapon: "+ str(Slot[3]))
+print("Main weapon: " + str(Slot[3]))
+print("Active buffs: " + buffs[0] + ", " + buffs[1] + ", " + buffs[2])
 
 input("press enter to continue")
 os.system("clear")
