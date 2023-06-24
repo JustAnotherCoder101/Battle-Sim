@@ -1,8 +1,9 @@
 import random
 import os
 import function
+import time
 
-Name = input("What is Your Hero's name?")
+Name = input("What is Your Hero's name? ")
 HP = 20
 MP = 20
 HPM = 20
@@ -13,7 +14,7 @@ Lvl = 1
 BDAM = 3
 Crit = 4
 Coins = 10
-Slot0 = {"0": 0, "WoodHelmet": 3}
+Slot0 = {"0": 0, "Wood Helmet": 3}
 b1 = 0
 b2 = 0
 b3 = 0
@@ -112,5 +113,15 @@ print("Coins:" + str(Coins), "\033[0m")
 print("Main weapon: " + str(Slot[3]))
 print("Active buffs: " + buffs[0] + ", " + buffs[1] + ", " + buffs[2])
 
-input("press enter to continue")
+input("press enter to continue ")
 os.system("clear")
+
+print("You wander into the forrest...")
+time.sleep(1)
+os.system("clear")
+print("As you stroll you hear a strange howl...")
+time.sleep(1)
+os.system("clear")
+print("You see a Wolf!")
+
+
