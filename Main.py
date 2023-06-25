@@ -18,6 +18,7 @@ Slot0 = {"0": 0, "Wood Helmet": 3}
 b1 = 0
 b2 = 0
 b3 = 0
+lvlp = 0
 
 #Slots are numbered in the id of the list
 Slot1 = {"Shirt": 2}
@@ -97,7 +98,22 @@ def BuffName():
     thing3 = "None"
   return [thing1, thing2, thing3]
 
-
+def fighttut1():
+  global HP
+  global MP
+  global HPM
+  global MPM
+  EHP = 10
+  EHPM = 10
+  
+  print("Enemy: Wolf")
+  print("Wolf's HP: "  + str(EHP) + "/" + str(EHPM))
+  print()
+  print("Your HP: " + str(HP) + "/" + str(HPM))
+  print("Your MP: " + str(MP) + "/" + str(MPM))
+  print("press enter")
+  input()
+  
 buffs = BuffName()
 os.system("clear")
 print("Hero Stats")
@@ -123,5 +139,8 @@ print("As you stroll you hear a strange howl...")
 time.sleep(1)
 os.system("clear")
 print("You see a Wolf!")
+time.sleep(1)
+os.system("clear")
+fighttut1()
 
 
