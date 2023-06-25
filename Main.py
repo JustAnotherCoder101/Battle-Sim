@@ -105,7 +105,7 @@ def fighttut1():
   global HPM
   global MPM
   global DAM
-  EDAM = 6
+  EDAM = 8
   EHP = 15
   EHPM = 15
   DEFmod = 0
@@ -127,7 +127,7 @@ def fighttut1():
   print("press enter")
   input()
   while EHP >= 1:
-    if HP <= 0:
+    if HP < 1:
       return "LOSE"
     os.system("clear")
     print("Enemy: Wolf")
@@ -135,11 +135,12 @@ def fighttut1():
     print()
     print(Name + "'s HP: " + str(HP) + "/" + str(HPM))
     print(Name + "'s MP: " + str(MP) + "/" + str(MPM))
-    print("Attack or defend?")
-    choice = input("1 = Attack, 2 = defend ")
-    while True:
-      if choice == "1":
 
+    while True:
+      print("Attack or defend?")
+      choice = input("1 = Attack, 2 = defend ")
+      if choice == "1":
+        os.system("clear")
         print("You attack the wolf")
         fEHP = EHP
         EHP -= DAM + random.randint(-3, 3)
@@ -148,23 +149,28 @@ def fighttut1():
         break
 
       elif choice == "2":
+        os.system("clear")
         print("You defend yourself")
-        DEFmod = 2
+        DEFmod = 3
         input()
         break
 
-    else:
-      print("sorry, unrecognised input")
-      input()
-    os.system("clear")
+      else:
+        print("sorry, unrecognised input")
+        input()
+        os.system("clear")
 
     if EHP >= 1:
       print("The wolf attacks you!")
-      fHP = HP
-      HP -= EDAM - DEF - DEFmod + random.randint(-3, 3)
-      DEFmod = 0
-      print("It dealt " + str(fHP - HP) + " damage")
-      input()
+      cEDAM = EDAM - DEF - DEFmod + random.randint(-3, 3)
+      if cEDAM <= 0:
+        DEFmod = 0
+        print("You laugh, The wolf competely misses")
+      else:
+        HP -= cEDAM
+        DEFmod = 0
+        print("It dealt " + str(cEDAM) + " damage")
+        input()
     else:
       return "WIN"
 
@@ -197,10 +203,13 @@ print("You see a Wolf!")
 input()
 os.system("clear")
 while True:
-  if fighttut1() == 1:
+  C = fighttut1()
+  if C == "WIN":
     os.system("clear")
     print("You beat the Wolf!")
     break
   else:
-    print("You won't give up, you run to catch the wolf after a short rest.")
     HP = 30
+    print("You won't give up, you run to catch the wolf after a short rest.")
+ 
+    
