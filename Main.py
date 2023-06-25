@@ -4,14 +4,14 @@ import function
 import time
 
 Name = input("What is Your Hero's name? ")
-HP = 20
+HP = 30
 MP = 20
-HPM = 20
+HPM = 30
 MPM = 20
 XP = 0
 XPlvl = 10
 Lvl = 1
-BDAM = 3
+BDAM = 2
 Crit = 4
 Coins = 10
 Slot0 = {"0": 0, "Wood Helmet": 3}
@@ -23,7 +23,7 @@ lvlp = 0
 #Slots are numbered in the id of the list
 Slot1 = {"Shirt": 2}
 Slot2 = {"Leggings": 1, "Plated Leggings": 3}
-Slot3 = {"Rookie's Sword": 5, "Sword": 8}
+Slot3 = {"Rookie's Sword": 3, "Sword": 8}
 SlotBuff = {
   "0": 0,
   "Crit1": 5,
@@ -98,45 +98,77 @@ def BuffName():
     thing3 = "None"
   return [thing1, thing2, thing3]
 
+
 def fighttut1():
   global HP
   global MP
   global HPM
   global MPM
-  EHP = 5
-  EHPM = 5
-  
+  global DAM
+  EDAM = 6
+  EHP = 15
+  EHPM = 15
+  DEFmod = 0
   print("Enemy: Wolf")
-  print("Wolf's HP: "  + str(EHP) + "/" + str(EHPM))
+  print("Wolf's HP: " + str(EHP) + "/" + str(EHPM))
   print()
-  print("Your HP: " + str(HP) + "/" + str(HPM))
-  print("Your MP: " + str(MP) + "/" + str(MPM))
+  print(Name + "'s HP: " + str(HP) + "/" + str(HPM))
+  print(Name + "'s MP: " + str(MP) + "/" + str(MPM))
   print("press enter")
   input()
   os.system("clear")
   print("----INFORMATION----")
   print("Enemy: Wolf <--Name of enemy")
-  print("Wolf's HP: "  + str(EHP) + "/" + str(EHPM)+" <-- enemy's health")
+  print("Wolf's HP: " + str(EHP) + "/" + str(EHPM) + " <-- enemy's health")
   print()
-  print("Your HP: " + str(HP) + "/" + str(HPM)+" <-- Your health ")
-  print("Your MP: " + str(MP) + "/" + str(MPM)+" <-- Your mana(this will be used later)")
+  print(Name + "'s HP: " + str(HP) + "/" + str(HPM) + " <-- Your health ")
+  print(Name + "'s MP: " + str(MP) + "/" + str(MPM) +
+        " <-- Your magic(this will be used later in the game)")
   print("press enter")
   input()
-  while EHP >= 1: 
+  while EHP >= 1:
+    if HP <= 0:
+      return "LOSE"
     os.system("clear")
     print("Enemy: Wolf")
-    print("Wolf's HP: "  + str(EHP) + "/" + str(EHPM))
+    print("Wolf's HP: " + str(EHP) + "/" + str(EHPM))
     print()
-    print("Your HP: " + str(HP) + "/" + str(HPM))
-    print("Your MP: " + str(MP) + "/" + str(MPM))
+    print(Name + "'s HP: " + str(HP) + "/" + str(HPM))
+    print(Name + "'s MP: " + str(MP) + "/" + str(MPM))
     print("Attack or defend?")
-    
-    if input("1 = Attack, 2= defend") == 1:
-      pass
-      
-      
-  
-  
+    choice = input("1 = Attack, 2 = defend ")
+    while True:
+      if choice == "1":
+
+        print("You attack the wolf")
+        fEHP = EHP
+        EHP -= DAM + random.randint(-3, 3)
+        print("You dealt " + str(fEHP - EHP) + " damage")
+        input()
+        break
+
+      elif choice == "2":
+        print("You defend yourself")
+        DEFmod = 2
+        input()
+        break
+
+    else:
+      print("sorry, unrecognised input")
+      input()
+    os.system("clear")
+
+    if EHP >= 1:
+      print("The wolf attacks you!")
+      fHP = HP
+      HP -= EDAM - DEF - DEFmod + random.randint(-3, 3)
+      DEFmod = 0
+      print("It dealt " + str(fHP - HP) + " damage")
+      input()
+    else:
+      return "WIN"
+
+
 buffs = BuffName()
 os.system("clear")
 print("Hero Stats")
@@ -156,14 +188,19 @@ input("press enter to continue ")
 os.system("clear")
 
 print("You wander into the forrest...")
-time.sleep(1)
+input()
 os.system("clear")
 print("As you stroll you hear a strange howl...")
-time.sleep(1)
+input()
 os.system("clear")
 print("You see a Wolf!")
-time.sleep(1)
+input()
 os.system("clear")
-fighttut1()
-
-
+while True:
+  if fighttut1() == 1:
+    os.system("clear")
+    print("You beat the Wolf!")
+    break
+  else:
+    print("You won't give up, you run to catch the wolf after a short rest.")
+    HP = 30
