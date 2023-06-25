@@ -103,8 +103,8 @@ def fighttut1():
   global MP
   global HPM
   global MPM
-  EHP = 10
-  EHPM = 10
+  EHP = 5
+  EHPM = 5
   
   print("Enemy: Wolf")
   print("Wolf's HP: "  + str(EHP) + "/" + str(EHPM))
@@ -113,6 +113,29 @@ def fighttut1():
   print("Your MP: " + str(MP) + "/" + str(MPM))
   print("press enter")
   input()
+  os.system("clear")
+  print("----INFORMATION----")
+  print("Enemy: Wolf <--Name of enemy")
+  print("Wolf's HP: "  + str(EHP) + "/" + str(EHPM)+" <-- enemy's health")
+  print()
+  print("Your HP: " + str(HP) + "/" + str(HPM)+" <-- Your health ")
+  print("Your MP: " + str(MP) + "/" + str(MPM)+" <-- Your mana(this will be used later)")
+  print("press enter")
+  input()
+  while EHP >= 1: 
+    os.system("clear")
+    print("Enemy: Wolf")
+    print("Wolf's HP: "  + str(EHP) + "/" + str(EHPM))
+    print()
+    print("Your HP: " + str(HP) + "/" + str(HPM))
+    print("Your MP: " + str(MP) + "/" + str(MPM))
+    print("Attack or defend?")
+    
+    if input("1 = Attack, 2= defend") == 1:
+      pass
+      
+      
+  
   
 buffs = BuffName()
 os.system("clear")
