@@ -150,8 +150,8 @@ def fighttut1():
 
       elif choice == "2":
         os.system("clear")
-        print("You defend yourself")
-        DEFmod = 3
+        print("You brace yourself")
+        DEFmod = 4
         input()
         break
 
@@ -207,9 +207,15 @@ while True:
   if C == "WIN":
     os.system("clear")
     print("You beat the Wolf!")
+    input()
     break
   else:
     HP = 30
     print("You won't give up, you run to catch the wolf after a short rest.")
  
-    
+os.system("clear")
+print("You head back to the town to rest...")
+input()
+os.system("clear")
+print("You walk outside to the village")
+input()
