@@ -279,12 +279,12 @@ while True:
     input()
     break
   else:
-    HP = 30
+    HP = HPM
     print("You won't give up, you run to catch the wolf after a short rest.")
  
 os.system("clear")
 print("You head back to the town to rest...")
-HP = 30
+HP = HPM
 input()
 os.system("clear")
 print("You walk outside to the village")
