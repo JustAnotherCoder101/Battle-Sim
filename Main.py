@@ -175,6 +175,75 @@ def fighttut1():
       return "WIN"
 
 
+
+def BATTLE(name, hp, hpm):
+  global HP
+  global MP
+  global HPM
+  global MPM
+  global DAM
+  EName = name
+  EDAM = 8
+  EHP = hp
+  EHPM = hpm
+  DEFmod = 0
+  print("You encounter a "+str(EName)+"!")
+  print("Enemy: " + EName)
+  print(EName + "'s HP: " + str(EHP) + "/" + str(EHPM))
+  print()
+  print(Name + "'s HP: " + str(HP) + "/" + str(HPM))
+  print(Name + "'s MP: " + str(MP) + "/" + str(MPM))
+  print("press enter")
+  input()
+  while EHP >= 1:
+    if HP < 1:
+      return "LOSE"
+    os.system("clear")
+    print("Enemy: " + EName)
+    print("'s HP: " + str(EHP) + "/" + str(EHPM))
+    print()
+    print(Name + "'s HP: " + str(HP) + "/" + str(HPM))
+    print(Name + "'s MP: " + str(MP) + "/" + str(MPM))
+
+    while True:
+      print("Attack or defend?")
+      choice = input("1 = Attack, 2 = defend ")
+      if choice == "1":
+        os.system("clear")
+        print("You attack the "+ EName)
+        fEHP = EHP
+        EHP -= DAM + random.randint(-3, 3)
+        print("You dealt " + str(fEHP - EHP) + " damage")
+        input()
+        break
+
+      elif choice == "2":
+        os.system("clear")
+        print("You brace yourself")
+        DEFmod = 4
+        input()
+        break
+
+      else:
+        print("sorry, unrecognised input")
+        input()
+        os.system("clear")
+
+    if EHP >= 1:
+      print("The "+EName+" attacks you!")
+      cEDAM = EDAM - DEF - DEFmod + random.randint(-3, 3)
+      if cEDAM <= 0:
+        DEFmod = 0
+        print("You laugh, The "+EName+" competely misses")
+      else:
+        HP -= cEDAM
+        DEFmod = 0
+        print("It dealt " + str(cEDAM) + " damage")
+        input()
+    else:
+      return "WIN"
+
+
 buffs = BuffName()
 os.system("clear")
 print("Hero Stats")
@@ -215,7 +284,10 @@ while True:
  
 os.system("clear")
 print("You head back to the town to rest...")
+HP = 30
 input()
 os.system("clear")
 print("You walk outside to the village")
 input()
+
+BATTLE("Butt",10,10)
