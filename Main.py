@@ -105,7 +105,7 @@ def fighttut1():
   global HPM
   global MPM
   global DAM
-  EDAM = 8
+  EDAM = 5
   EHP = 15
   EHPM = 15
   DEFmod = 0
@@ -143,7 +143,7 @@ def fighttut1():
         os.system("clear")
         print("You attack the wolf")
         fEHP = EHP
-        EHP -= DAM + random.randint(-3, 3)
+        EHP -= DAM + random.randint(-2, 2)
         print("You dealt " + str(fEHP - EHP) + " damage")
         input()
         break
@@ -162,7 +162,7 @@ def fighttut1():
 
     if EHP >= 1:
       print("The wolf attacks you!")
-      cEDAM = EDAM - DEF - DEFmod + random.randint(-3, 3)
+      cEDAM = EDAM - DEF - DEFmod + random.randint(-2, 2)
       if cEDAM <= 0:
         DEFmod = 0
         print("You laugh, The wolf competely misses")
@@ -175,8 +175,7 @@ def fighttut1():
       return "WIN"
 
 
-
-def BATTLE(name, hp, hpm):
+def BATTLE(name, hp, mp):
   global HP
   global MP
   global HPM
@@ -185,11 +184,14 @@ def BATTLE(name, hp, hpm):
   EName = name
   EDAM = 8
   EHP = hp
-  EHPM = hpm
+  EHPM = hp
+  EMP = mp
+  EMPM = mp
   DEFmod = 0
-  print("You encounter a "+str(EName)+"!")
+  print("You encounter a " + str(EName) + "!")
   print("Enemy: " + EName)
   print(EName + "'s HP: " + str(EHP) + "/" + str(EHPM))
+  print(EName + "'s MP: " + str(EMP) + "/" + str(EMPM))
   print()
   print(Name + "'s HP: " + str(HP) + "/" + str(HPM))
   print(Name + "'s MP: " + str(MP) + "/" + str(MPM))
@@ -210,7 +212,7 @@ def BATTLE(name, hp, hpm):
       choice = input("1 = Attack, 2 = defend ")
       if choice == "1":
         os.system("clear")
-        print("You attack the "+ EName)
+        print("You attack the " + EName)
         fEHP = EHP
         EHP -= DAM + random.randint(-3, 3)
         print("You dealt " + str(fEHP - EHP) + " damage")
@@ -230,11 +232,11 @@ def BATTLE(name, hp, hpm):
         os.system("clear")
 
     if EHP >= 1:
-      print("The "+EName+" attacks you!")
+      print("The " + EName + " attacks you!")
       cEDAM = EDAM - DEF - DEFmod + random.randint(-3, 3)
       if cEDAM <= 0:
         DEFmod = 0
-        print("You laugh, The "+EName+" competely misses")
+        print("You laugh, The " + EName + " competely misses")
       else:
         HP -= cEDAM
         DEFmod = 0
@@ -245,6 +247,7 @@ def BATTLE(name, hp, hpm):
 
 
 buffs = BuffName()
+
 os.system("clear")
 print("Hero Stats")
 print("Name: " + Name)
@@ -280,8 +283,8 @@ while True:
     break
   else:
     HP = HPM
-    print("You won't give up, you run to catch the wolf after a short rest.")
- 
+    print("You run to catch the wolf after a short rest.")
+
 os.system("clear")
 print("You head back to the town to rest...")
 HP = HPM
@@ -290,4 +293,4 @@ os.system("clear")
 print("You walk outside to the village")
 input()
 
-BATTLE("Butt",10,10)
+BATTLE("Butt", 10, 0)
