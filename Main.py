@@ -293,4 +293,7 @@ os.system("clear")
 print("You walk outside to the village")
 input()
 
-BATTLE("Butt", 10, 0)
+#ideas? put them below
+#
+#
+
